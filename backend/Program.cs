@@ -13,8 +13,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular",
@@ -23,7 +21,8 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
-
+var app = builder.Build();
+app.UseCors("AllowAngular");
 // Configure the HTTP request pipeline.
 
 if (app.Environment.IsDevelopment())
