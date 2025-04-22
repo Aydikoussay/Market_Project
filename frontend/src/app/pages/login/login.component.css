@@ -1,0 +1,130 @@
+/* Conteneur principal de la page de connexion */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(10, 133, 40, 0.301),
+      rgba(201, 255, 199, 0.8)
+    ),
+}
+
+/* Images à gauche et à droite */
+.login-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+  z-index: -1;
+
+}
+.form-icon {
+ 
+  margin-right: 3px; /* Espace entre l'icône et le texte */
+  color: #000000d3; /* Couleur des icônes */
+  font-size: 19px; /* Taille des icônes */
+  vertical-align: middle; /* Aligne les icônes avec le texte */
+}
+
+/* Boîte de connexion */
+.login-box {
+  background: rgba(255, 255, 255, 0.219); /* Fond blanc avec transparence */
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
+  text-align: center;
+  width: 400px;
+  z-index: 1; /* Place la boîte au-dessus des images */
+}
+
+/* Titre de la boîte de connexion */
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #000000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Groupe de champs de formulaire */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Étiquette des champs */
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #000000ec;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Champs de saisie */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  background: transparent; /* Fond transparent */
+  color: #000; /* Couleur du texte */
+  border: 2px solid rgba(0, 0, 0, 0.5); /* Bordure semi-transparente */
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none; /* Supprime le contour par défaut */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Bouton de connexion */
+.login-button {
+  width: 100%;
+  padding: 13px;
+  background: #ffffff77;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #a30a699c;
+  color: white;
+  transition: background 0.3s ease;
+}
+/* Message d'erreur */
+.error-message {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: left;
+}
+/* Conteneur pour le champ de mot de passe et l'icône */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Champ de mot de passe */
+.password-container input {
+  flex: 1;
+}
+
+/* Icône pour afficher/masquer le mot de passe */
+.toggle-password-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5); /* Couleur de l'icône */
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.toggle-password-icon:hover {
+  color: rgba(0, 0, 0, 0.8); /* Couleur plus foncée au survol */
+}

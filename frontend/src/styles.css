@@ -1,0 +1,127 @@
+/* Variables */
+/* Supprime les marges ou paddings globaux */
+body, html {
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff; /* Fond blanc global */
+        overflow: hidden; /* Empêche le défilement global */
+      } /* Empêche le défilement si le contenu dépasse */
+  }
+/* styles.css ou styles.scss */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-headbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px; /* Ajustez selon la hauteur de votre header */
+}
+
+app-sidebar {
+  position: fixed;
+  top: 60px; /* Même valeur que la hauteur du header */
+  left: 0;
+  bottom: 0;
+  width: 250px; /* Largeur de la sidebar */
+  z-index: 900;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+/* Conteneur principal pour le contenu */
+.content-wrapper {
+  margin-left: 250px; /* Même valeur que la largeur de la sidebar */
+  margin-top: 60px; /* Même valeur que la hauteur du header */
+  padding: 20px;
+  flex: 1;
+  transition: margin-left 0.3s;
+}
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #000000;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        overflow: hidden;
+    }
+    
+    .logo span, .nav-links span {
+        display: none;
+    }
+    
+    .nav-links a {
+        justify-content: center;
+    }
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* styles.css ou styles.scss */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .dark-mode .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-color: #333;
+  }
+  
+  .dark-mode .form-control {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-color: #444;
+  }
+  
+  .dark-mode select.form-control,
+  .dark-mode input.form-control {
+    background-color: #2d2d2d;
+    color: #ffffff;
+  }
+  
+  .dark-mode .card {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Ajoutez d'autres styles pour le mode sombre selon vos besoins */

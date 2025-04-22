@@ -1,0 +1,89 @@
+<br><br><br><br>
+<div class="main-content" @fadeIn>
+  <div class="search-bar-container">
+    <div class="search-bar">
+      <span class="search-icon fas fa-search"></span>
+      <input type="text" 
+            class="search-input" 
+            placeholder="Rechercher un fournisseur..."
+            [(ngModel)]="searchTerm"
+            (input)="filterFournisseurs()">
+    </div>
+  </div>
+  
+  <div class="table-container">
+    <table class="styled-table" @tableAnimation>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Contact</th>
+          <th>Adresse</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fournisseur of filteredFournisseurs; let i = index">
+          <td>{{ fournisseur.id }}</td>
+          
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'nom_fournisseur'); else editNom"
+                 (click)="startEdit(fournisseur, i, 'nom_fournisseur')">
+              {{ fournisseur.nom_fournisseur || 'Cliquez pour éditer' }}
+            </div>
+            <ng-template #editNom>
+              <input [(ngModel)]="editingFournisseur!.nom_fournisseur"
+                      (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #nomInput
+                     autofocus>
+            </ng-template>
+          </td>
+          
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'contact'); else editContact"
+                 (click)="startEdit(fournisseur, i, 'contact')">
+              {{ fournisseur.contact || 'Cliquez pour éditer' }}
+            </div>
+            <ng-template #editContact>
+              <input [(ngModel)]="editingFournisseur!.contact"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #contactInput
+                     autofocus>
+            </ng-template>
+          </td>
+          
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'adresse'); else editAdresse"
+                 (click)="startEdit(fournisseur, i, 'adresse')">
+              {{ fournisseur.adresse || 'Cliquez pour éditer' }}
+            </div>
+            <ng-template #editAdresse>
+              <input [(ngModel)]="editingFournisseur!.adresse"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #adresseInput
+                     autofocus>
+            </ng-template>
+          </td>
+          
+          <td class="action-buttons">
+            <button class="btn-delete" (click)="deleteFournisseur(fournisseur); $event.stopPropagation()">
+              Supprimer
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="add-bottom-button">
+    <button class="btn-add" (click)="addFournisseur()">
+      <i class="fas fa-plus"></i> Ajouter un fournisseur
+    </button>
+  </div>
+</div>

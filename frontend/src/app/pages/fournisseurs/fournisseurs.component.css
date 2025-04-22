@@ -1,0 +1,269 @@
+/* Styles de base */
+.main-content {
+  margin-left: 250px;
+  padding: 2rem;
+}
+
+/* Boutons d'action */
+.action-buttons {
+  margin-bottom: 2rem;
+}
+
+.btn-add, .btn-delete {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-add {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-add:hover {
+  background-color: #3e8e41;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Tableau */
+.table-container {
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  max-height: 55vh;
+  position: relative;
+  background-color: #ddd;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+}
+
+.styled-table th {
+  position: relative;
+  background-color: #5f066b;
+  color: white;
+  padding: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.styled-table th:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: rgba(255,255,255,0.2);
+}
+
+.styled-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.styled-table tr:not(:last-child) td {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.styled-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.styled-table tr:hover td {
+  background-color: #f5f5f5;
+}
+
+.styled-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Cellules éditables */
+.styled-table td.editable {
+  cursor: pointer;
+}
+
+.styled-table td:hover:not(.action-buttons) {
+  background-color: #f0f0f0;
+}
+
+.styled-table td input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  transition: all 0.2s;
+}
+
+.styled-table td input:focus {
+  outline: none;
+  border-color: #5f066b;
+  box-shadow: 0 0 0 2px rgba(95, 6, 107, 0.1);
+}
+
+/* Effet de surbrillance */
+.styled-table tr.modified td {
+  background-color: rgba(255, 243, 205, 0.5);
+  transition: background-color 1s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.styled-table tr {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  
+  .table-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    max-height: 600px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+  
+  .styled-table {
+    min-width: 700px;
+  }
+}
+
+/* Bouton ajouter */
+.add-bottom-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.add-bottom-button .btn-add {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Header fixe */
+.styled-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Barre de recherche */
+.search-bar-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-bar {
+  position: relative;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5f066b;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 50%;
+  padding: 10px 15px 10px 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #333;
+  background-color: rgba(161, 156, 156, 0.164);
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.815);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #5f066b;
+  box-shadow: 0 0 0 2px rgba(95, 6, 107, 0.1);
+}
+
+.search-input::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+.styled-table td.editable input {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #5f066b;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.styled-table td.editable input:focus {
+  outline: none;
+  border-color: #5f066b;
+  box-shadow: 0 0 0 3px rgba(95, 6, 107, 0.2);
+}
+
+.styled-table td.editable div {
+  padding: 8px;
+  min-height: 36px;
+  cursor: pointer;
+}

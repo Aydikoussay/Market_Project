@@ -1,0 +1,46 @@
+<div id="nav-bar" >
+  <div id="nav-header">
+    <a id="nav-title"  target="_blank">
+      <i class="fas fa-store"></i><span > Sessi Shop</span></a>
+   
+  </div>
+  <div id="nav-content">
+    <div class="nav-button"  (click)="navigateTo('dashboard')">
+      <span *ngIf="isOpen">Dashboard</span>
+      <i class="fas fa-tachometer-alt"></i>
+    </div>
+    
+    <div class="nav-button" (click)="navigateTo('achat-page')">
+      <span *ngIf="isOpen">Achats</span>
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+    <div class="nav-button" (click)="navigateTo('vente-page')">
+      <span *ngIf="isOpen">Ventes</span>
+      <i class="fas fa-cash-register"></i>
+    </div>
+    <hr >
+    <div class="nav-button" (click)="navigateTo('fournisseur-page')">
+      <span *ngIf="isOpen">Fournisseurs</span>
+      <i class="fas fa-users"></i>
+    </div>
+    <div class="nav-button" (click)="navigateTo('statistique')">
+      <span *ngIf="isOpen">Statistique</span>
+      <i class="fas fa-chart-bar"></i>
+    </div>
+    <div class="nav-button" (click)="navigateTo('stocke-page')">
+      <span *ngIf="isOpen">Stock</span>
+      <i class="fas fa-boxes"></i>
+    </div>
+    <hr >
+ 
+    <div id="nav-content-highlight"></div>
+  </div>
+  <div id="nav-footer">
+    <div id="nav-footer-heading">
+    
+    <span *ngIf="isOpen" (click)="onLogout()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Déconnexion</span>
+    <i class="fas fa-sign-out-alt"></i>
+    </div>
+ 
+  </div>
+</div>

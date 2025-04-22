@@ -1,0 +1,117 @@
+<div class="dashboard-container"[class.dark-mode]="isDarkMode">
+  <br>
+      <h1>{{ greetingMessage }} Mr.Rafik sur le Dashboard</h1>
+  
+      <!-- Conteneur des cartes -->
+    <div class="cards-container">
+      <!-- Carte Cigarettes -->
+      <div class="card">
+        <div class="content">
+          <div class="back">
+            <div class="back-content">
+              <i class="fas fa-smoking" style="font-size: 50px; color: #ffffff;"></i>
+              <strong>Cigarettes</strong>
+            </div>
+          </div>
+          <div class="front">
+            <div class="img">
+              <div class="circle"></div>
+              <div class="circle" id="right"></div>
+              <div class="circle" id="bottom"></div>
+            </div>
+            <div class="front-content">
+              <small class="badge">Smoke</small>
+              <div class="description">
+                <div class="title">
+                  <p class="title">
+                    <strong>Cigarettes</strong>
+                  </p>
+                  <i class="fas fa-smoking" style="font-size: 15px; color: #20c997;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <br>
+      <!-- Carte Produits alimentaires -->
+      <div class="card">
+        <div class="content">
+          <div class="back">
+            <div class="back-content">
+              <i class="fas fa-utensils" style="font-size: 50px; color: #ffffff;"></i>
+              <strong>Produits alimentaires</strong>
+            </div>
+          </div>
+          <div class="front">
+            <div class="img">
+              <div class="circle"></div>
+              <div class="circle" id="right"></div>
+              <div class="circle" id="bottom"></div>
+            </div>
+            <div class="front-content">
+              <small class="badge">Food</small>
+              <div class="description">
+                <div class="title">
+                  <p class="title">
+                    <strong>Produits alimentaires</strong>
+                  </p>
+                  <i class="fas fa-utensils" style="font-size: 15px; color: #20c997;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <br>
+      <!-- Carte Fruits secs -->
+      <div class="card">
+        <div class="content">
+          <div class="back">
+            <div class="back-content">
+              <i class="fas fa-apple-alt" style="font-size: 50px; color: #ffffff;"></i>
+              <strong>Fruits secs</strong>
+            </div>
+          </div>
+          <div class="front">
+            <div class="img">
+              <div class="circle"></div>
+              <div class="circle" id="right"></div>
+              <div class="circle" id="bottom"></div>
+            </div>
+            <div class="front-content">
+              <small class="badge">Fruits</small>
+              <div class="description">
+                <div class="title">
+                  <p class="title">
+                    <strong>Fruits secs</strong>
+                  </p>
+                  <i class="fas fa-apple-alt" style="font-size: 15px; color: #20c997;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <br>
+    
+      <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank" class="icon facebook">
+          <fa-icon [icon]="faFacebook"></fa-icon>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="icon instagram">
+          <fa-icon [icon]="faInstagram"></fa-icon>
+        </a>
+      </div>
+    </div>
+    <svg
+    id="svg-global"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 94 136"
+    height="136"
+    width="94"
+  >
+    <!-- ... contenu SVG complet ... -->
+  </svg>

@@ -1,0 +1,443 @@
+/* Base styles */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .container-fluid {
+    margin-left: 256px; /* Largeur de la sidebar */
+    width: calc(100% - 256px);
+    height: 100vh;
+    
+   /* Couleur de fond sombre */
+    background-size: cover;
+    
+  }
+  
+  /* Grid layout */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem;
+  }
+  
+  .g-4 {
+    gap: 1.5rem;
+  }
+  
+  .col-12 {
+    flex: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  @media (min-width: 1200px) {
+    .col-xl-4 {
+      flex: 0 0 calc(33.333333% - 1.5rem);
+      max-width: calc(33.333333% - 1.5rem);
+    }
+  }
+  
+  /* Card styles */
+  .card {
+    position: relative;
+    background-color: rgba(245, 245, 245, 0.9);
+    border: 1px solid rgba(0,0,0,.125);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    min-height: 350px;
+    
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .rounded-4 {
+    border-radius: 0.75rem;
+  }
+  
+  .border-top {
+    border-top-width: 4px !important;
+  }
+  
+  .border-primary {
+    border-color: #0d6efd !important;
+  }
+  
+  .border-success {
+    border-color: #198754 !important;
+  }
+  
+  .border-danger {
+    border-color: #dc3545 !important;
+  }
+  
+  .border-warning {
+    border-color: #ffc107 !important;
+  }
+  
+  .mb-0 {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Card body */
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+ 
+  /* Typography */
+  .fs-6 {
+    font-size: 1rem;
+  }
+  
+  .fw-medium {
+    font-weight: 500;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Form styles */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  }
+  
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Button styles */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-lg {
+    padding: 1rem 2rem;
+  }
+  
+  .rounded-5 {
+    border-radius: 2rem;
+  }
+  
+  .w-100 {
+    width: 100%;
+  }
+  
+  /* Gradient buttons */
+  .btn-grd-info {
+    background: linear-gradient(45deg, #0dcaf0, #0d6efd);
+    color: white;
+  }
+  
+  .btn-grd-success {
+    background: linear-gradient(45deg, #198754, #20c997);
+    color: white;
+  }
+  
+  .btn-grd-danger {
+    background: linear-gradient(45deg, #dc3545, #fd7e14);
+    color: white;
+  }
+  
+  .btn-grd-warning {
+    background: linear-gradient(45deg, #ffc107, #fd7e14);
+    color: white;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  /* Grid layout for buttons */
+  .d-grid {
+    display: grid;
+  }
+  
+  /* Spacing utilities */
+  .my-4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .my-5 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+  
+  .gap-2 {
+    gap: 0.5rem;
+  }
+  
+  .gap-3 {
+    gap: 1rem;
+  }
+  
+  .add-item-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .add-item-input {
+    flex: 1;
+  }
+  
+  .add-item-btn {
+    flex: 0 0 auto;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Icônes */
+  .fas {
+    font-size: 1.5rem;
+  }
+  
+  .text-warning {
+    color: #ffc107;
+  }
+  
+  /* Flex utilities */
+  .justify-content-center {
+    justify-content: center;
+  }
+  
+  .align-items-center {
+    align-items: center;
+  }
+  
+  .min-vh-100 {
+    min-height: 100vh;
+  }
+  
+  .h-100 {
+    height: 100%;
+  }
+  
+  .mt-auto {
+    margin-top: auto;
+  }
+  
+  .py-4 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+/* Animation pour les cartes */
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Délais d'animation pour chaque carte */
+.col-12.col-xl-4:nth-child(1) .card {
+    animation-delay: 0.1s;
+}
+
+.col-12.col-xl-4:nth-child(2) .card {
+    animation-delay: 0.2s;
+}
+
+.col-12.col-xl-4:nth-child(3) .card {
+    animation-delay: 0.3s;
+}
+
+/* La carte "Autre" aura un délai plus long */
+.row:last-child .col-12.col-xl-4 .card {
+    animation-delay: 0.4s;
+}
+
+/* Définition de l'animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Transition pour les interactions */
+.card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Effet au survol amélioré */
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Transition pour les éléments du formulaire */
+.form-control, .btn {
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    transform: scale(1.02);
+}
+
+.btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+  /* Grid layout for buttons */
+  .d-grid {
+    display: grid;
+  }
+  
+  /* Spacing utilities */
+  .my-4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .my-5 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+  
+  .gap-2 {
+    gap: 0.5rem;
+  }
+  
+  .gap-3 {
+    gap: 1rem;
+  }
+  
+  .add-item-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .add-item-input {
+    flex: 1;
+  }
+  
+  .add-item-btn {
+    flex: 0 0 auto;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Icônes */
+  .fas {
+    font-size: 1.5rem;
+  }
+  
+  .text-warning {
+    color: #ffc107;
+  }
+  
+  /* Flex utilities */
+  .justify-content-center {
+    justify-content: center;
+  }
+  
+  .align-items-center {
+    align-items: center;
+  }
+  
+  .min-vh-100 {
+    min-height: 100vh;
+  }
+  
+  .h-100 {
+    height: 100%;
+  }
+  
+  .mt-auto {
+    margin-top: auto;
+  }
+  
+  .py-4 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+/* Animation de fond */
+.container-fluid {
+    animation: fadeInBackground 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInBackground {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Effets de carte améliorés */
+  .card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Animation des éléments de formulaire */
+  .form-control {
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Animation des boutons */
+  .btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn:active {
+    transform: translateY(1px);
+  }

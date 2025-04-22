@@ -1,0 +1,20 @@
+
+<div class="main-layout"[class.dark-mode]="isDarkMode">
+  <app-sidebar></app-sidebar>
+  <div class="main-content">
+ <app-headbar>  </app-headbar>
+<img src="/assets/background.webp" alt="Background" style="
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1;
+opacity: 0.8;
+">
+<app-dashboard [isDarkMode]="isDarkMode">
+</app-dashboard>
+   
+  </div>
+</div>

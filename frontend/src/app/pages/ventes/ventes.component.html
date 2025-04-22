@@ -1,0 +1,150 @@
+<br><br><br>
+<div class="container-fluid h-100 overflow-auto"  style="position: relative;" @cardAnimation>
+   
+ 
+    <div class="row g-4 justify-content-center align-items-center min-vh-100 py-4">
+      <!-- Carte Cigarettes -->
+      <div class="col-12 col-xl-4">
+        <div class="card border-top border-4 border-primary rounded-4 mb-0 h-100">
+          <div class="card-body p-4 d-flex flex-column">
+            <div class="my-4 d-flex justify-content-center align-items-center gap-2">
+              <i class="fas fa-smoking text-primary"></i>
+              <h3 class="mb-0 text-center">Cigarettes</h3>
+            </div>
+            
+            <div class="form-group">
+              <label for="cigaretteSelect">Type de cigarette</label>
+              <select class="form-control" id="cigaretteSelect" [(ngModel)]="selectedCigarette">
+                <option value="" disabled selected>Choisissez une marque</option>
+                <option *ngFor="let item of cigarettes" [value]="item">{{item}}</option>
+              </select>
+             
+            </div>
+            
+            <div class="form-group">
+              <label for="cigaretteQuantity">Nombre de cigarettes</label>
+              <input type="number" class="form-control" id="cigaretteQuantity" [(ngModel)]="quantiteCigarettes" min="1">
+            </div>
+             
+            <div class="form-group">
+                <label for="cigaretteQuantity">Nombre de paquets</label>
+                <input type="number" class="form-control" id="cigaretteQuantity" [(ngModel)]="quantiteCigarettes" min="1">
+              </div>
+              
+            <div class="d-grid mt-auto">
+              <button class="btn btn-lg btn-grd btn-grd-info w-100 rounded-5" 
+                      (click)="validerAchat('cigarettes')"
+                      [disabled]="!selectedCigarette || quantiteCigarettes <= 0">
+                Valider la vente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Carte Produits Alimentaires -->
+      <div class="col-12 col-xl-4">
+        <div class="card border-top border-4 border-success rounded-4 mb-0 h-100">
+          <div class="card-body p-4 d-flex flex-column">
+            <div class="my-4 d-flex justify-content-center align-items-center gap-2">
+              <i class="fas fa-utensils text-success"></i>
+              <h3 class="mb-0 text-center">Produits Alimentaires</h3>
+            </div>
+            
+            <div class="form-group">
+              <label for="produitSelect">Type de produit</label>
+              <select class="form-control" id="produitSelect" [(ngModel)]="selectedProduit">
+                <option value="" disabled selected>Choisissez une marque</option>
+                <option *ngFor="let item of produitsAlimentaires" [value]="item">{{item}}</option>
+              </select>
+            
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="produitQuantity">Quantité</label>
+              <input type="number" class="form-control" id="produitQuantity" [(ngModel)]="quantiteProduits" min="1">
+            </div>
+            <br><br>
+            <div class="d-grid mt-auto">
+              <button class="btn btn-lg btn-grd btn-grd-success w-100 rounded-5" 
+                      (click)="validerAchat('produits alimentaires')"
+                      [disabled]="!selectedProduit || quantiteProduits <= 0">
+                Valider la vente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Carte Fruits Secs -->
+      <div class="col-12 col-xl-4">
+        <div class="card border-top border-4 border-danger rounded-4 mb-0 h-100">
+          <div class="card-body p-4 d-flex flex-column">
+            <div class="my-4 d-flex justify-content-center align-items-center gap-2">
+              <i class="fas fa-apple-alt text-danger"></i>
+              <h3 class="mb-0 text-center">Fruits Secs</h3>
+            </div>
+            
+            <div class="form-group">
+              <label for="fruitSelect">Type de fruit sec</label>
+              <select class="form-control" id="fruitSelect" [(ngModel)]="selectedFruit">
+                <option value="" disabled selected>Choisissez une option</option>
+                <option *ngFor="let item of fruitsSecs" [value]="item">{{item}}</option>
+              </select>
+              
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="fruitQuantity">Quantité (en grammes)</label>
+              <input type="number" class="form-control" id="fruitQuantity" [(ngModel)]="quantiteFruits" min="1">
+            </div>
+            <br><br>
+            <div class="d-grid mt-auto">
+              <button class="btn btn-lg btn-grd btn-grd-danger w-100 rounded-5" 
+                      (click)="validerAchat('fruits secs')"
+                      [disabled]="!selectedFruit || quantiteFruits <= 0">
+                Valider la vente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Nouvelle carte Autre - Centrée en dessous des 3 autres -->
+    <div class="row justify-content-center" @cardAnimation>
+        
+      <div class="col-12 col-xl-4">
+        <div class="card border-top border-4 border-warning rounded-4 mb-0 h-100">
+          <div class="card-body p-4 d-flex flex-column">
+            <div class="my-4 d-flex justify-content-center align-items-center gap-2">
+              <i class="fas fa-ellipsis-h text-warning"></i>
+              <h3 class="mb-0 text-center">Autre</h3>
+            </div>
+       
+            <div class="form-group">
+              <label for="autreSelect">Type de produit</label>
+              <select class="form-control" id="autreSelect" [(ngModel)]="selectedAutre">
+                <option value="" disabled selected>Choisissez une marque</option>
+                <option *ngFor="let item of autresProduits" [value]="item">{{item}}</option>
+              </select>
+            
+            </div>
+            <br><br>
+            <div class="form-group">
+              <label for="autreQuantity">Quantité</label>
+              <input type="number" class="form-control" id="autreQuantity" [(ngModel)]="quantiteAutres" min="1">
+            </div>
+            <br><br>
+            <div class="d-grid mt-auto">
+              <button class="btn btn-lg btn-grd btn-grd-warning w-100 rounded-5" 
+                      (click)="validerAchat('autres produits')"
+                      [disabled]="!selectedAutre || quantiteAutres <= 0">
+                Valider la vente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

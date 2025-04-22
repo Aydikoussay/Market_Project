@@ -1,0 +1,209 @@
+<br><br><br>
+<div class="main-content" @fadeIn>
+  <div class="controls-container">
+    <div class="search-filter-container">
+      <div class="search-bar">
+        <span class="search-icon fas fa-search"></span>
+        <input type="text"
+               class="search-input"
+               placeholder="Rechercher par nom, catégorie, marque..."
+               [(ngModel)]="searchTerm"
+               (input)="filterProducts()">
+      </div>
+      
+      <div class="filter-toggle">
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="showLowStockOnly" (change)="filterProducts()">
+          <span class="slider round"></span>
+        </label>
+        <span class="filter-label">Afficher seulement le stock faible</span>
+      </div>
+    </div>
+    
+    <button class="btn-add" (click)="addProduct()">
+      <i class="fas fa-plus"></i> Nouveau produit
+    </button>
+  </div>
+  
+  <div class="table-container">
+    <table class="styled-table" @tableAnimation>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Catégorie</th>
+          <th>Marque</th>
+          <th>Origine</th>
+          <th>Prix Achat</th>
+          <th>Prix Vente</th>
+          <th>Stock</th>
+          <th>Seuil</th>
+          <th>Péremption</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredProducts; let i = index" [class.low-stock]="isLowStock(product)">
+          <td>{{ product.id }}</td>
+          
+          <!-- Nom -->
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'name'); else editName"
+                 (click)="startEdit(product, i, 'name')">
+              {{ product.name || 'Cliquez pour éditer' }}
+            </div>
+            <ng-template #editName>
+              <input [(ngModel)]="editingProduct!.name"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #nameInput>
+            </ng-template>
+          </td>
+          
+          <!-- Catégorie -->
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'category'); else editCategory"
+                 (click)="startEdit(product, i, 'category')">
+              {{ product.category || 'Cliquez pour éditer' }}
+            </div>
+            <ng-template #editCategory>
+              <input [(ngModel)]="editingProduct!.category"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #categoryInput>
+            </ng-template>
+          </td>
+          
+          <!-- Marque -->
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'brand'); else editBrand"
+                 (click)="startEdit(product, i, 'brand')">
+              {{ product.brand || 'Cliquez pour éditer' }}
+            </div>
+            <ng-template #editBrand>
+              <input [(ngModel)]="editingProduct!.brand"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #brandInput>
+            </ng-template>
+          </td>
+          
+          <!-- Origine -->
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'origin'); else editOrigin"
+                 (click)="startEdit(product, i, 'origin')">
+              {{ product.origin || '-' }}
+            </div>
+            <ng-template #editOrigin>
+              <input [(ngModel)]="editingProduct!.origin"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #originInput>
+            </ng-template>
+          </td>
+          
+          <!-- Prix Achat -->
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'purchasePrice'); else editPurchasePrice"
+                 (click)="startEdit(product, i, 'purchasePrice')">
+              {{ product.purchasePrice | currency:'EUR':'symbol':'1.2-2' }}
+            </div>
+            <ng-template #editPurchasePrice>
+              <input type="number"
+                     step="0.01"
+                     [(ngModel)]="editingProduct!.purchasePrice"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #purchasePriceInput>
+            </ng-template>
+          </td>
+          
+          <!-- Prix Vente -->
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'sellingPrice'); else editSellingPrice"
+                 (click)="startEdit(product, i, 'sellingPrice')">
+              {{ product.sellingPrice | currency:'EUR':'symbol':'1.2-2' }}
+            </div>
+            <ng-template #editSellingPrice>
+              <input type="number"
+                     step="0.01"
+                     [(ngModel)]="editingProduct!.sellingPrice"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #sellingPriceInput>
+            </ng-template>
+          </td>
+          
+          <!-- Stock -->
+          <td class="editable" [class.low-stock-cell]="isLowStock(product)">
+            <div *ngIf="!(editingIndex === i && editingField === 'stock'); else editStock"
+                 (click)="startEdit(product, i, 'stock')">
+              {{ product.stock }}
+            </div>
+            <ng-template #editStock>
+              <input type="number"
+                     [(ngModel)]="editingProduct!.stock"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #stockInput>
+            </ng-template>
+          </td>
+          
+          <!-- Seuil -->
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'threshold'); else editThreshold"
+                 (click)="startEdit(product, i, 'threshold')">
+              {{ product.threshold }}
+            </div>
+            <ng-template #editThreshold>
+              <input type="number"
+                     [(ngModel)]="editingProduct!.threshold"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #thresholdInput>
+            </ng-template>
+          </td>
+          
+          <!-- Péremption -->
+          <td class="editable">
+            <div *ngIf="!(editingIndex === i && editingField === 'expiration'); else editExpiration"
+                 (click)="startEdit(product, i, 'expiration')">
+              {{ product.expiration || '-' }}
+            </div>
+            <ng-template #editExpiration>
+              <input type="date"
+                     [(ngModel)]="editingProduct!.expiration"
+                     (blur)="saveEdit()"
+                     (keyup.enter)="saveEdit()"
+                     (keyup.escape)="cancelEdit()"
+                     #expirationInput>
+            </ng-template>
+          </td>
+          
+          <!-- Actions -->
+          <td class="action-buttons">
+            <button class="btn-delete" (click)="deleteProduct(product); $event.stopPropagation()">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="status-bar">
+    <span class="total-products">Total: {{products.length}} produits</span>
+    <span class="low-stock-count" *ngIf="products.length > 0">
+      <i class="fas fa-exclamation-triangle"></i> 
+      {{filteredProducts.length  ? 'Aucun' : filteredProducts.length}} produits en stock faible
+    </span>
+  </div>
+</div>
